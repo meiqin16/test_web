@@ -44,7 +44,12 @@ class Base(object):
         return element
 
     def find_elements(self, locator, timeout=10):
-        """定位一组元素,返回元素列表"""
+        """
+        定位一组元素,返回元素列表
+        :param locator: 定位器,是一个元组 ("id","id属性值")
+        :param timeout: 最大等待时间
+        :return:
+        """
         elements = WebDriverWait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
         return elements
 
@@ -102,9 +107,11 @@ class Base(object):
         """等待时间"""
         self.driver.implicitly_wait(30)
 
-
     def close_browser(self):
-        """关闭浏览器"""
+        """
+        关闭浏览器
+        :return:
+        """
         self.driver.quit()
 
 if __name__ == '__main__':
